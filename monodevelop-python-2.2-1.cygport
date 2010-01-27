@@ -1,0 +1,13 @@
+inherit mono
+
+DESCRIPTION="Python plugin for MonoDevelop IDE"
+HOMEPAGE="http://monodevelop.com/"
+
+MAKEOPTS+=" -j1"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	./configure --prefix=/usr --config=RELEASE
+	cygmake
+}
